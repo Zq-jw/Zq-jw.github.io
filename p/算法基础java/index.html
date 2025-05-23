@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="了解算法的基础以及常见工具类，算法入门">
+<title>算法基础（java）</title>
+
+<link rel='canonical' href='https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/'>
+
+<link rel="stylesheet" href="/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css"><meta property='og:title' content="算法基础（java）">
+<meta property='og:description' content="了解算法的基础以及常见工具类，算法入门">
+<meta property='og:url' content='https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/'>
+<meta property='og:site_name' content='X.子诠'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='算法基础' /><meta property='article:tag' content='java' /><meta property='article:tag' content='算法入门' /><meta property='article:published_time' content='2025-03-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-03-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/14f13872a196ca3560305c6654f929e.jpg' />
+<meta name="twitter:title" content="算法基础（java）">
+<meta name="twitter:description" content="了解算法的基础以及常见工具类，算法入门"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/14f13872a196ca3560305c6654f929e.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_255f813e69a66968.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🐈‍⬛</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">X.子诠</a></h1>
+            <h2 class="site-description">演示说明</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3546388715538942'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M7.172 2.757L10.414 6h3.171l3.243-3.242a1 1 0 0 1 1.415 1.415l-1.829 1.827L18.5 6A3.5 3.5 0 0 1 22 9.5v8a3.5 3.5 0 0 1-3.5 3.5h-13A3.5 3.5 0 0 1 2 17.5v-8A3.5 3.5 0 0 1 5.5 6h2.085L5.757 4.171a1 1 0 0 1 1.415-1.415zM18.5 8h-13a1.5 1.5 0 0 0-1.493 1.356L4 9.5v8a1.5 1.5 0 0 0 1.356 1.493L5.5 19h13a1.5 1.5 0 0 0 1.493-1.356L20 17.5v-8A1.5 1.5 0 0 0 18.5 8zM8 11a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm8 0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+    </g>
+</svg>
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://Zq-jw.github.io/en/" >English</option>
+                                
+                                    <option value="https://Zq-jw.github.io/" selected>简体中文</option>
+                                
+                                    <option value="https://Zq-jw.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1常用正则表达">1、常用正则表达</a>
+      <ol>
+        <li><a href="#11--元字符字符集与量词详解">1.1  元字符、字符集与量词详解</a></li>
+        <li><a href="#12--次数表示">1.2  次数表示</a></li>
+      </ol>
+    </li>
+    <li><a href="#2快速输入输出">2、快速输入输出</a>
+      <ol>
+        <li><a href="#21-快速输入streamtokenizer">2.1 快速输入<code>（StreamTokenizer）</code></a></li>
+      </ol>
+    </li>
+    <li><a href="#22--推荐输入方法写成内部工具类">2.2  推荐输入方法&mdash;写成内部工具类</a>
+      <ol>
+        <li><a href="#23--快速输出">2.3  快速输出</a></li>
+      </ol>
+    </li>
+    <li><a href="#4常用api">4、常用<code>api</code></a>
+      <ol>
+        <li><a href="#41--string">4.1  String</a></li>
+        <li><a href="#42--stringbuilder">4.2  StringBuilder</a></li>
+        <li><a href="#43--栈和队列">4.3  栈和队列</a>
+          <ol>
+            <li><a href="#431栈的常用方法">4.3.1栈的常用方法</a></li>
+            <li><a href="#432队列的常用方法">4.3.2队列的常用方法</a></li>
+            <li><a href="#433通用方法">4.3.3通用方法</a></li>
+          </ol>
+        </li>
+        <li><a href="#44--链表">4.4  链表</a></li>
+        <li><a href="#45--集合set">4.5  集合set</a></li>
+        <li><a href="#46--映射map">4.6  映射map</a></li>
+        <li><a href="#47--工具类">4.7  工具类</a>
+          <ol>
+            <li><a href="#471arrays">4.7.1arrays</a></li>
+            <li><a href="#472collections">4.7.2Collections</a></li>
+            <li><a href="#473integer">4.7.3Integer</a></li>
+          </ol>
+        </li>
+        <li><a href="#48--日期calendar">4.8  日期Calendar</a></li>
+        <li><a href="#49--数学工具math">4.9  数学工具Math</a></li>
+        <li><a href="#410--大数类">4.10  大数类</a></li>
+        <li><a href="#411-常用封装算法">4.11 常用封装算法</a>
+          <ol>
+            <li><a href="#4111最大公因数最小公倍数">4.11.1最大公因数/最小公倍数</a></li>
+            <li><a href="#4112快速幂">4.11.2快速幂</a></li>
+            <li><a href="#4113-快速幂求模">4.11.3 快速幂求模</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#5进制转化">5、进制转化</a>
+      <ol>
+        <li><a href="#51--十进制转其他进制">5.1  十进制转其他进制</a></li>
+      </ol>
+    </li>
+    <li><a href="#52--其他进制转十进制">5.2  其他进制转十进制</a></li>
+    <li><a href="#6位运算技巧">6、位运算技巧</a>
+      <ol>
+        <li><a href="#61--利用或操作--和空格将英文字符转换为小写">6.1  利用或操作 | 和空格将英文字符转换为小写</a></li>
+        <li><a href="#62--利用与操作--和下划线将英文字符转换为大写">6.2  利用与操作 &amp; 和下划线将英文字符转换为大写</a></li>
+        <li><a href="#63--利用异或操作--和空格进行英文字符大小写互换">6.3  利用异或操作 ^ 和空格进行英文字符大小写互换</a></li>
+      </ol>
+    </li>
+    <li><a href="#7图的存储">7、图的存储</a>
+      <ol>
+        <li><a href="#71--邻接矩阵">7.1  邻接矩阵</a></li>
+        <li><a href="#72--邻接表">7.2  邻接表</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/">
+                <img src="/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/14f13872a196ca3560305c6654f929e_hu_99b8f314a9362439.jpg"
+                        srcset="/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/14f13872a196ca3560305c6654f929e_hu_99b8f314a9362439.jpg 800w, /p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/14f13872a196ca3560305c6654f929e_hu_b68d3e63780d90ad.jpg 1600w"
+                        width="800" 
+                        height="778" 
+                        loading="lazy"
+                        alt="Featured image of post 算法基础（java）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7%E7%B1%BB/" >
+                基础工具类
+            </a>
+        
+            <a href="/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" >
+                基础算法入门
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/">算法基础（java）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            了解算法的基础以及常见工具类，算法入门
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-03-11</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 12 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="算法基础">算法基础
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ascii常用码值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">48</span><span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">0</span><span class="w">			</span><span class="n">65</span><span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">A</span><span class="w">			</span><span class="n">97</span><span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="1常用正则表达">1、常用正则表达
+</h2><h3 id="11--元字符字符集与量词详解">1.1  元字符、字符集与量词详解
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">（一）元字符
+</span></span><span class="line"><span class="cl">元字符是正则表达式中的特殊字符，具有特殊含义。常见的元字符包括：
+</span></span><span class="line"><span class="cl">. ：匹配除换行符以外的任意单个字符。
+</span></span><span class="line"><span class="cl">^ ：匹配字符串的开始位置。
+</span></span><span class="line"><span class="cl">$ ：匹配字符串的结束位置。
+</span></span><span class="line"><span class="cl">* ：匹配前面的子表达式零次或多次。
+</span></span><span class="line"><span class="cl">+ ：匹配前面的子表达式一次或多次。
+</span></span><span class="line"><span class="cl">? ：匹配前面的子表达式零次或一次。
+</span></span><span class="line"><span class="cl">{n} ：匹配前面的子表达式恰好 n 次。
+</span></span><span class="line"><span class="cl">{n,m} ：匹配前面的子表达式至少 n 次，至多 m 次。
+</span></span><span class="line"><span class="cl">[] ：定义一个字符集合，匹配其中的任意一个字符。
+</span></span><span class="line"><span class="cl">| ：匹配左边或右边的表达式。
+</span></span><span class="line"><span class="cl">() ：捕获括号内的表达式，形成一个分组。
+</span></span><span class="line"><span class="cl">（二）字符集
+</span></span><span class="line"><span class="cl">字符集用于定义一组字符，匹配其中的任意一个字符。常见的字符集包括：
+</span></span><span class="line"><span class="cl">[abc] ：匹配 a、b 或 c。
+</span></span><span class="line"><span class="cl">[a-z] ：匹配小写字母 a 到 z。
+</span></span><span class="line"><span class="cl">[A-Z] ：匹配大写字母 A 到 Z。
+</span></span><span class="line"><span class="cl">[0-9] ：匹配数字 0 到 9。
+</span></span><span class="line"><span class="cl">[a-zA-Z0-9] ：匹配字母或数字。
+</span></span><span class="line"><span class="cl">（三）量词
+</span></span><span class="line"><span class="cl">量词用于指定前面的字符或子表达式出现的次数。常见的量词包括：
+</span></span><span class="line"><span class="cl">* ：零次或多次。
+</span></span><span class="line"><span class="cl">+ ：一次或多次。
+</span></span><span class="line"><span class="cl">? ：零次或一次。
+</span></span><span class="line"><span class="cl">{n} ：恰好 n 次。
+</span></span><span class="line"><span class="cl">{n,m} ：至少 n 次，至多 m 次。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="12--次数表示">1.2  次数表示
+</h3><p><img src="https://i-blog.csdnimg.cn/blog_migrate/1a758cec542c538b62a29c9f5ac99d33.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h2 id="2快速输入输出">2、快速输入输出
+</h2><h3 id="21-快速输入streamtokenizer">2.1 快速输入<code>（StreamTokenizer）</code>
+</h3><p>​    <code>StreamTokenizer</code>只能接收数字或字母，如果输入除空格和回车以外的字符（如：~!@#$%^&amp;*()_+{}:&lt;&gt;?)无法识别，会显示null。同时如果要求输出的是字符，你的输入却是数字开头，那么字符会变成null。要求是输入数字你却输出了字母，那么数字会变成0。</p>
+<p>（1）我们在使用<code>StreamTokenizer</code>类时，我们要导入io包，它是io包中的类
+（2）在使用这个类时，函数要抛出<code>IOException</code>异常（throws <code>IOException</code>）
+（3）每一次读入之前都要用<code>nextToken</code>（）方法获取下一个数据
+（4）读取数据的方法，<code>sval</code>方法读取字符串类型（以空格或者换行分隔），<code>nval</code>方法读取数字类型数据。读取字符串类型的数据时，一次只能读一个字符串，读取数字类型的数据时，默认为double类型
+（5）<code>StreamTokenizer</code>类使用的具体写法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">test</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">args</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">StreamTokenizer</span><span class="w"> </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamTokenizer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">st</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">sval</span><span class="p">;</span><span class="c1">//读取String类型数据`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">st</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">double</span><span class="w"> </span><span class="n">num1</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">st</span><span class="p">.</span><span class="na">nval</span><span class="p">;</span><span class="c1">//读取double类型数据`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">st</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">st</span><span class="p">.</span><span class="na">nval</span><span class="p">;</span><span class="c1">//读取int类型数据`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">st</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">long</span><span class="w"> </span><span class="n">num3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">st</span><span class="p">.</span><span class="na">nval</span><span class="p">;</span><span class="c1">//读取long类型数据</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="22--推荐输入方法写成内部工具类">2.2  推荐输入方法&mdash;写成内部工具类
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/** 快速输入类 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Reader</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">BufferedReader</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">StringTokenizer</span><span class="w"> </span><span class="n">tokenizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringTokenizer</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/** 获取下一段文本 */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">tokenizer</span><span class="p">.</span><span class="na">hasMoreTokens</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tokenizer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringTokenizer</span><span class="p">(</span><span class="n">reader</span><span class="p">.</span><span class="na">readLine</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">tokenizer</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">nextInt</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">nextDouble</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Double</span><span class="p">.</span><span class="na">parseDouble</span><span class="p">(</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="23--快速输出">2.3  快速输出
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.IOException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.OutputStreamWriter</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.PrintWriter</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrintWriterOutput</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PrintWriter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">OutputStreamWriter</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;这里是要输出的内容!&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// 输出后不换行</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// 输出后换行</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// 格数化输出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">out</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span><span class="w"> </span><span class="c1">// ！!!!!!!!!!!记得刷新一下在控制台输出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4常用api">4、常用<code>api</code>
+</h2><h3 id="41--string">4.1  String
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 返回此字符串的长度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">length</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 判空，当长度为0时返回true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">isEmpty</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 除去任何前导和尾随空格，如果该字符串没有前导或尾随的空格，则返回值为该字符串本身</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">trim</span><span class="p">()</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回索引i处的字符，也可以通过toCharArray()转变成数组再遍历</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">charAt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 按字典顺序比较两个字符串</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">compareTo</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">anotherString</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 按字典顺序且不区分大小写比较两个字符串</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">compareToIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">anotherString</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 判断两个字符串是否相等，相等返回true否则返回false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">equals</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">anotherString</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 同上，不区分大小写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">equalsIgnoreCase</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 检查是否以某一前缀开始</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">startsWith</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">prefix</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 根据指定字符串拆分</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">split</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">regex</span><span class="p">)</span><span class="w"> 			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回从begin开始到end-1结束的子串</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">substring</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">beginIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将此字符串中的所有字母都换为大写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toUpperCase</span><span class="p">()</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将此字符串中的所有字母都换为小写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toLowerCase</span><span class="p">()</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// lastIndexOf有类似用法👇</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回指定字符在此字符串中第一次出现的索引</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 同上，从指定索引开始搜索</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fromindex</span><span class="p">)</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回子串在此字符串中第一次出现的索引</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 同上，从指定索引开始搜索</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fromindex</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 用s2替换目标字符串中出现的所有s1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">replaceAll</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 用s2替换目标字符串中出现的第一个s1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">replaceFirst</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 类方法【即String.xxx】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回 char数组的字符串表示形式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">valueOf</span><span class="p">(</span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回 char 数组参数的特定子数组的字符串表示形式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">valueOf</span><span class="p">(</span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回参数【int,boolean...】的字符串表示形式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">valueOf</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">								
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="42--stringbuilder">4.2  StringBuilder
+</h3><p>​		相较于<code>String</code>来说，处理速度更快，所以处理字符串的时候一般使用<code>StringBuilder</code>，最后再通过<code>toString()</code>方法转为字符串。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 构建一个值为str的可变字符串【也可传空参数】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">StringBuilder</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回索引i位置的字符</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">charAt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此字符串的长度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">length</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 在此字符串追加str【参数为StringBuilder也可以】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">append</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 在index处插入字符数组c【c也可以是单个字符或者其他类型】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将char的子数组【下标offset开始，长度len】追加到此字符串</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">append</span><span class="p">(</span><span class="kt">char</span><span class="o">[]</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 移除此序列从start到end-1的字符串</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">delete</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 移除指定索引上的字符</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">deleteCharAt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将指定索引处的字符替换为ch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">setCharAt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将此字符串反转</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reverse</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此字符串从start开始至length-1结束的String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">substring</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此字符串从start开始至end-1结束的String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">substring</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此序列中的String表示形式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toString</span><span class="p">()</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// lastIndexOf有类似用法👇</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回子字符串第一次出现的索引</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 同上，从指定位置查找</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fromIndex</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="43--栈和队列">4.3  栈和队列
+</h3><h4 id="431栈的常用方法">4.3.1栈的常用方法
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Stack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 栈顶插入元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">push</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回栈顶元素并弹出    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pop</span><span class="p">()</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//返回栈顶元素但不弹出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">peek</span><span class="p">()</span><span class="w">    
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="432队列的常用方法">4.3.2队列的常用方法
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 头插</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">addFirst</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 尾插</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">addLast</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 获取队列头元素    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">getFirst</span><span class="p">()</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 获取队列尾元素    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">getLast</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 获取头元素并弹出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">poll</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 获取尾元素并弹出     </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pollLast</span><span class="p">()</span><span class="w">		 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 删除指定索引元素    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">remove</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回首次出现某元素的索引</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">	
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="433通用方法">4.3.3通用方法
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 清空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">clear</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回大小    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">size</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 判断是否为空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">isEmpty</span><span class="p">()</span><span class="w">					
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 得到指定索引元素【栈是从栈顶数下来】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 改变某索引处的元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">set</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span><span class="w">		
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="44--链表">4.4  链表
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">objectName</span><span class="w"> </span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">　 </span><span class="c1">// 初始化</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 默认将元素添加到链表尾，可以通过index添加到指定位置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">add</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 移除指定位置元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">remove</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 修改指定位置元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">set</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">element</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 得到指定位置元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回第一次/最后一次出现某元素的索引</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">indexOf</span><span class="o">/</span><span class="n">lastIndexOf</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//返回大小/是否为空    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">size</span><span class="p">()</span><span class="o">/</span><span class="n">isEmpty</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 链表变数组    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toArray</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 字符串形式输出【若要输出自定义形式，可以遍历后用StringBuilder拼接】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toString</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="45--集合set">4.5  集合set
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Set</span><span class="o">&lt;</span><span class="n">object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 集合如果不存在元素ele，则添加此元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">add</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 清空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">clear</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 查询指定元素是否存在，存在返回true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">contains</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 判空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">isEmpty</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 如果指定元素在此set中则移除</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">remove</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回元素数量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">size</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回一个大于等于当前元素的最小元素【屋顶上一个】，不存在返回null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ceiling</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回一个小于等于当前元素的最大元素【地板下一个】，不存在返回null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">floor</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此set中严格大于给定元素的最小元素,不存在返回null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">higher</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此set中严格小于给定元素的最大元素，不存在返回null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">lower</span><span class="p">(</span><span class="n">ele</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回第一个元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">first</span><span class="p">()</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回最后一个元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">last</span><span class="p">()</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="46--映射map">4.6  映射map
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 在此映射中关联指定值与指定键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">put</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 从此映射中移除指定键的映射关系（如果存在)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 清空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">clear</span><span class="p">()</span><span class="w"> 				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 如果包含指定键，返回true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">containsKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 如果包含指定值，返回true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">containsValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回指定键的值，如果不存在返回null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回此映射中当前第一个（最低）键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">firstKey</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回映射中当前最后一个（最高）键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">lastKey</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回大于等于给定键的最小键；如果不存在这样的键，则返回 null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ceilingKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回小于等于给定键的最大键；如果不存在这样的键，则返回 null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">floorKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 是否空/map大小    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">isEmpty</span><span class="p">()</span><span class="o">/</span><span class="n">size</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//查找key = a的value，如果没有返回b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">getOrDefault</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//获得key值链表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">keySet</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//遍历</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="w"> </span><span class="n">2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;关键字：&#34;</span><span class="o">+</span><span class="n">entry</span><span class="p">.</span><span class="na">getKey</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;值：&#34;</span><span class="o">+</span><span class="n">entry</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="47--工具类">4.7  工具类
+</h3><h4 id="471arrays">4.7.1arrays
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 将arr数组元素变为字符串，一般用于输出看看数组情况，省去遍历的繁琐操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toString</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="w">  		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// arr数组排序，可以传入匿名类Comparator自定义排序方式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">Comparator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(){})</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// arr数组二分查找(需要排好序)元素ele，返回目标值索引，找不到返回-1			</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 复制arr数组[from,to)位置元素，返回复制好的数组副本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">copyOfRange</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">from</span><span class="p">,</span><span class="n">to</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 使用ele元素将数组填充</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">fill</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span><span class="w"> 		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 比较两个数组元素的内容是否完全一致</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">equals</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span><span class="n">arr2</span><span class="p">)</span><span class="w"> 		
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="472collections">4.7.2Collections
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 仅List可用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 反转List中的元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">reverse</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 按照小到大对链表进行排序【默认】，也可以实现Compartor接口自定义排序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sort</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="k">new</span><span class="w"> </span><span class="n">Cpmparator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(){})</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将list中的i处元素和j处元素进行交换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">swap</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// list2拷贝到list1，要确保list1有足够空间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">copy</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span><span class="n">list2</span><span class="p">)</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将list中的A替换成B</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">replaceAll</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// List和Set都可用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回最大、最小元素</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">max</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="o">/</span><span class="n">min</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// ele出现次数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">frequency</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="473integer">4.7.3Integer
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Boolean，Double等都有类似将字符串转换的方法👇</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将字符串参数解析为带符号的十进制整数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">parseInt</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> 	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将字符串参数解析为第二个参数指定的基数中的有符号正整数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// radix参数不填则默认以十进制数进行解析</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">parseInt</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">radix</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 将i转为k进制真值【有正负号】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toString</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="err">，</span><span class="n">k</span><span class="p">)</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="48--日期calendar">4.8  日期Calendar
+</h3><p>通过设置对象内部字段再通过get方法获得数值</p>
+<p>YEAR ：指示年份</p>
+<p>MONTH：指示月份</p>
+<p>MONTH字段是从0月开始计数的，所以12月对应的值是11</p>
+<p>DAY_OF_MONTH：指示一个月中的某天。</p>
+<p>DAY_OF_WEEK：指示一个星期中的某天。</p>
+<p>DAY_OF_YEAR：指示当前年中的天数。</p>
+<p>DAY_OF_WEEK_IN_MONTH：指示当前月中的第几个星期。</p>
+<p>HOUR：指示当天中的某小时</p>
+<p>MINUTE：指示当前小时中的某分钟</p>
+<p>SECOND：指示当前分钟中的某秒</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 得到Calendar对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Calendar</span><span class="w"> </span><span class="n">calendar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Calendar</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 第一个参数是日期字段，诸如YEAR、MONTH等将给定的日历字段设置为给定值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">set</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 设置日历字段年月日的值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">set</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 获取给定字段的值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">get</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">field</span><span class="p">);</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 以毫秒为单位返回日历时间值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">getTimeInMillis</span><span class="p">()</span><span class="w"> 		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 根据日历的规则，为给定的日历字段添加或减去指定的时间量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="49--数学工具math">4.9  数学工具Math
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// a,b的最值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 返回正确舍入的 double 值的正平方根</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sqrt</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 绝对值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a的b次方，返回一个double类型的数。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pow</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 向上取整</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ceil</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">		
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 向下取整</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">floor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 四舍五入取整</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">round</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 生成一个[0,1)之间的double类型的伪随机数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">random</span><span class="p">()</span><span class="w">				
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// tan，cos与sin类似</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// acos(-1)=π</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 正弦值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">sin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 反正弦值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">asin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> 	
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="410--大数类">4.10  大数类
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 传入字符串参数直接创建，可以使用=进行同类型赋值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BigInteger</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&#34;123456789101112131415&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">(</span><span class="s">&#34;123456.123456&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 以二进制解析&#34;111110&#34;，变为10进制赋值给d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BigInteger</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&#34;111110&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">2</span><span class="p">);</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 把a转化为16进制的字符串输出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">16</span><span class="p">));</span><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a对象值+b对象值并将结果返回</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 减法，同上👆</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">subtract</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 乘法，同上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 除法，同上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">divide</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 取余，同上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">mod</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 最大公因数，同上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 最值，同上</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">a</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a的b次方</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 比较大小，a大返回1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 把BigInteger 转化为 BigDecimal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toBigDecimal</span><span class="p">()</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 把BigDecimal 转化为 BigInteger</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">toBigInteger</span><span class="p">()</span><span class="w"> </span><span class="err">`</span><span class="n">BigDecimal</span><span class="err">`</span><span class="n">在乘除时可以指定结果舍入方式</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 只有乘除法才有舍入这个说法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 向零舍入。 即1.55 变为 1.5 , -1.55 变为-1.5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND_DOWN</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 向正无穷舍入. 即 1.55 变为 1.6 , -1.55 变为 -1.5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND_CEILING</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 向负无穷舍入. 即 1.55 变为 1.5 , -1.55 变为 -1.6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND_FLOOR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 四舍五入 即1.55 变为1.6, -1.55变为-1.6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND_HALF_UP</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 五舍六入 即 1.55 变为 1.5, -1.5变为-1.5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ROUND_HALF_DOWN</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a除b结果四舍五入并保留两位小数返回给c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">divide</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">.</span><span class="na">ROUND_HALF_UP</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// a保留两位小数并且向0舍入</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">setScale</span><span class="p">(</span><span class="n">2</span><span class="p">,</span><span class="w"> </span><span class="n">BigDecimal</span><span class="p">.</span><span class="na">ROUND_DOWN</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="411-常用封装算法">4.11 常用封装算法
+</h3><h4 id="4111最大公因数最小公倍数">4.11.1最大公因数/最小公倍数
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 最大公约数，此法原理为欧几里得算法，可以理解为是发现的一个规律，不必深究</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="nf">gcd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 最小公倍数=两数之积/两数最大公约数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4112快速幂">4.11.2快速幂
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 快速幂</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">qmi</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 保存结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">b</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 当前最右边二进制位上有值时，说明当前a值是我们所需要的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// b每次处理完一位后往右移</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// b完成一次位移后，a的次方数应当*2才能满足下一次乘数的要求</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4113-快速幂求模">4.11.3 快速幂求模
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 原理：(a*c)%mode==((a%mode)*(c%mode))%mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 此函数是求(a^b)%mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">Mode</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">b</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="5进制转化">5、进制转化
+</h2><h3 id="51--十进制转其他进制">5.1  十进制转其他进制
+</h3><p>​		一个重要的函数：<code>Integer.toString</code>(k,r) ，将十进制的数k转换为r进制的数。返回一个String。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">17</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="c1">//转二进制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toOctalString</span><span class="p">(</span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="c1">//转八进制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toHexString</span><span class="p">(</span><span class="n">k</span><span class="p">));</span><span class="w"> </span><span class="c1">//转十六进制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="n">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">));</span><span class="w"> </span><span class="c1">//转r进制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">r</span><span class="o">=</span><span class="n">8</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">));</span><span class="w"> </span><span class="c1">//转r进制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">r</span><span class="o">=</span><span class="n">16</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">));</span><span class="w"> </span><span class="c1">//转r进制</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="52--其他进制转十进制">5.2  其他进制转十进制
+</h2><p>​	函数：<code>Integer.parseInt(str,r)</code> ，将r进制的数字字符串str转换为十进制，并返回十进制的数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&#34;10001&#34;</span><span class="p">,</span><span class="n">2</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&#34;21&#34;</span><span class="p">,</span><span class="n">8</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="s">&#34;11&#34;</span><span class="p">,</span><span class="n">16</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//输出结果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">17</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="6位运算技巧">6、位运算技巧
+</h2><h3 id="61--利用或操作--和空格将英文字符转换为小写">6.1  利用或操作 | 和空格将英文字符转换为小写
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="62--利用与操作--和下划线将英文字符转换为大写">6.2  利用与操作 &amp; 和下划线将英文字符转换为大写
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="sc">&#39;_&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="sc">&#39;B&#39;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="sc">&#39;_&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="63--利用异或操作--和空格进行英文字符大小写互换">6.3  利用异或操作 ^ 和空格进行英文字符大小写互换
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="sc">&#39;d&#39;</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;D&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="sc">&#39;D&#39;</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;d&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="7图的存储">7、图的存储
+</h2><h3 id="71--邻接矩阵">7.1  邻接矩阵
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1000</span><span class="o">+</span><span class="n">7</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">maxd</span><span class="o">][</span><span class="n">maxd</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//n个点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//m条边</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="o">--&gt;</span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//a点（起点）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//b点（终点）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//边的权重</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    		</span><span class="c1">//有向图</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">//G[a][b] = c; //a-&gt;b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="c1">// 无向图</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">G</span><span class="o">[</span><span class="n">a</span><span class="o">][</span><span class="n">b</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">//a-&gt;b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">G</span><span class="o">[</span><span class="n">b</span><span class="o">][</span><span class="n">a</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">//b-&gt;a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="n">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">G</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">closeAll</span><span class="p">();</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="72--邻接表">7.2  邻接表
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//n个点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//m条边</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">ArrayList</span><span class="o">[]</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">[</span><span class="n">maxd</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="o">--&gt;</span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//a点（起点）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nextInt</span><span class="p">();</span><span class="w"> </span><span class="c1">//b点（终点）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">list</span><span class="o">[</span><span class="n">a</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">list</span><span class="o">[</span><span class="n">b</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s">&#34; &#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="o">=</span><span class="n">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&#34; -&gt; &#34;</span><span class="o">+</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">j</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
+        
+            <a href="/tags/java/">Java</a>
+        
+            <a href="/tags/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/">算法入门</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>X.子诠</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AE%97%E6%B3%951%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%85%A5%E9%97%A8/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E7%AE%97%E6%B3%951%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%85%A5%E9%97%A8/QQ%E5%9B%BE%E7%89%8720221204195959.071b218aa08a076154a058c516dff93f_hu_73ce08823a37eb04.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 算法1：时空复杂度入门"
+                        
+                        data-hash="md5-BxshiqCKB2FUoFjFFt/5Pw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法1：时空复杂度入门</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 x.子诠
+    </section>
+    
+    <section class="powerby">
+        
+            wzq-ziquan <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
