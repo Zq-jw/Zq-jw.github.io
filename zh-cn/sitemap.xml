@@ -41,12 +41,6 @@
     <loc>https://Zq-jw.github.io/tags/java/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Zq-jw.github.io/categories/java-web%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/tags/java%E5%90%8E%E7%AB%AF/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://Zq-jw.github.io/post/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -59,15 +53,6 @@
                 hreflang="zh-cn"
                 href="https://Zq-jw.github.io/post/"
                 />
-  </url><url>
-    <loc>https://Zq-jw.github.io/tags/redis/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/p/redis%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/tags/redis%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Zq-jw.github.io/tags/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
@@ -93,22 +78,10 @@
     <loc>https://Zq-jw.github.io/categories/%E9%AB%98%E6%95%88%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://Zq-jw.github.io/categories/%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7%E7%B1%BB/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://Zq-jw.github.io/tags/%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%951%E6%97%B6%E7%A9%BA%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://Zq-jw.github.io/p/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80java/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://Zq-jw.github.io/tags/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/</loc>
@@ -180,6 +153,10 @@
   </url><url>
     <loc>https://Zq-jw.github.io/p/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://Zq-jw.github.io/p/</loc>
+  </url><url>
+    <loc>https://Zq-jw.github.io/p/</loc>
   </url><url>
     <loc>https://Zq-jw.github.io/%E5%85%B3%E4%BA%8E/</loc>
   </url><url>
